@@ -6,7 +6,7 @@
                     <div class="card-header">Example Component</div>
 
                     <div class="card-body">
-                        here is the message
+                        {{ message }}
                     </div>
                 </div>
             </div>
@@ -16,12 +16,16 @@
 
 <script>
     export default {
-
+        data() {
+          return {
+              message: ''
+          };
+        },
         created() {
             console.log('created');
         },
         mounted() {
-            console.log('mounted');
+            this.message = 'modified message';
         }
     }
 </script>
