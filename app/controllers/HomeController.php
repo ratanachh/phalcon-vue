@@ -9,5 +9,10 @@ class HomeController extends ControllerBase
         echo 'Home index';
     }
 
+    public function contactUsAction()
+    {
+        echo 'Home contact us';
+    }
+
 }
 
