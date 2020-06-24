@@ -1,3 +1,4 @@
 <div class="container">
+    <input type='hidden' name='<?php echo $this->security->getTokenKey() ?>' value='<?php echo $this->security->getToken() ?>'/>
     <contact-us></contact-us>
 </div>
