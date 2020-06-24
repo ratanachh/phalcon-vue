@@ -3,6 +3,7 @@ declare(strict_types=1);
 
 use Phalcon\Escaper;
 use Phalcon\Flash\Direct as Flash;
+use Phalcon\Mvc\Dispatcher;
 use Phalcon\Mvc\Model\Metadata\Memory as MetaDataAdapter;
 use Phalcon\Mvc\View;
 use Phalcon\Mvc\View\Engine\Php as PhpEngine;
@@ -15,7 +16,7 @@ use Phalcon\Url as UrlResolver;
  * Shared configuration service
  */
 $di->setShared('config', function () {
-    return include APP_PATH . "/config/config.php";
+    return include BASE_PATH . "/config/config.php";
 });
 
 /**
@@ -120,3 +121,16 @@ $di->setShared('session', function () {
 
     return $session;
 });
+
+// Registering a dispatcher
+$di->set(
+    'dispatcher',
+    function () {
+        $dispatcher = new Dispatcher();
+        $dispatcher->setDefaultNamespace(
+            'App\Http\Controller'
+        );
+
+        return $dispatcher;
+    }
+);

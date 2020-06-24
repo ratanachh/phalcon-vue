@@ -5,7 +5,7 @@
  * NOTE: please remove this comment.
  */
 defined('BASE_PATH') || define('BASE_PATH', getenv('BASE_PATH') ?: realpath(dirname(__FILE__) . '/../..'));
-defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/app');
+defined('APP_PATH') || define('APP_PATH', BASE_PATH . '/src');
 defined('BASE_URI') || define('BASE_URI', $_GET['_url'] ?? '/');
 defined('PROJECT_PATH') || define('PROJECT_PATH', str_replace(BASE_URI, '/', urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH))));
 
@@ -20,13 +20,12 @@ return new \Phalcon\Config([
     ],
     'application' => [
         'appDir'         => APP_PATH . '/',
-        'controllersDir' => APP_PATH . '/controllers/',
-        'modelsDir'      => APP_PATH . '/models/',
-        'migrationsDir'  => APP_PATH . '/migrations/',
-        'viewsDir'       => APP_PATH . '/views/',
-        'pluginsDir'     => APP_PATH . '/plugins/',
-        'libraryDir'     => APP_PATH . '/library/',
-        'cacheDir'       => BASE_PATH . '/cache/',
+        'controllersDir' => APP_PATH . '/Controllers/',
+        'modelsDir'      => APP_PATH . '/Models/',
+        'migrationsDir'  => APP_PATH . '/Migrations/',
+        'viewsDir'       => APP_PATH . '/Views/',
+        'pluginsDir'     => APP_PATH . '/Plugins/',
+        'cacheDir'       => BASE_PATH . '/var/cache/',
         'baseUri'        => PROJECT_PATH,
     ]
 ]);

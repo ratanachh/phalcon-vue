@@ -7,9 +7,8 @@ $router = $di->getRouter(false);
 
 // Define your routes here
 $router->addGet('/', "Home::index");
-$router->addGet('/home', "Home::index");
 
-$router->addGet('/home/contact-us', "Home::contactUs");
+$router->addGet('/contact-us', "ContactUs::index");
 
 $router->addGet('/product', 'Product::index');
 
