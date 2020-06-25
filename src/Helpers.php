@@ -22,3 +22,18 @@ function container()
 
     return call_user_func_array([$default, 'get'], $args);
 }
+
+/**
+ * Get projects relative root path
+ *
+ * @param string $prefix
+ *
+ * @return string
+ */
+function root_path(string $prefix = ''): string
+{
+    /** @var Application $application */
+    $application = container(Application::APPLICATION_PROVIDER);
+
+    return join(DIRECTORY_SEPARATOR, [$application->getRootPath(), ltrim($prefix, DIRECTORY_SEPARATOR)]);
+}

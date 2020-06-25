@@ -58,7 +58,7 @@ class Application
         $baseUri = $this->di->getShared('url')->getBaseUri();
         $position = strpos($_SERVER['REQUEST_URI'], $baseUri) + strlen($baseUri);
         $uri = '/' . substr($_SERVER['REQUEST_URI'], $position);
-
+echo $uri;
         /** @var ResponseInterface $response */
         $response = $this->app->handle($uri);
 
@@ -93,7 +93,8 @@ class Application
             throw new Exception('File providers.php does not exist or is not readable.');
         }
 
-        $providers = include_once $filename;
+        $providers = require_once $filename;
+
         foreach ($providers as $providerClass) {
             /** @var ServiceProviderInterface $provider */
             $provider = new $providerClass;
