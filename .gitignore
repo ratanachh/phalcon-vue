@@ -5,3 +5,6 @@
 .idea
 .vscode
 /vendor/
+/public/js/
+/public/css/
+/composer.lock
