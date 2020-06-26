@@ -31,6 +31,7 @@ class Application
      */
     protected $rootPath;
 
+
     /**
      * @param string $rootPath
      *
@@ -38,14 +39,16 @@ class Application
      */
     public function __construct(string $rootPath)
     {
-        $this->di = new FactoryDefault();
-        $this->app = $this->createApplication();
+        $this->di       = new FactoryDefault();
+        $this->app      = $this->createApplication();
         $this->rootPath = $rootPath;
 
         $this->di->setShared(self::APPLICATION_PROVIDER, $this);
 
         $this->initializeProviders();
-    }
+
+    }//end __construct()
+
 
     /**
      * Run Application
@@ -55,14 +58,19 @@ class Application
      */
     public function run(): string
     {
-        $baseUri = $this->di->getShared('url')->getBaseUri();
-        $position = strpos($_SERVER['REQUEST_URI'], $baseUri) + strlen($baseUri);
-        $uri = '/' . substr($_SERVER['REQUEST_URI'], $position);
-        /** @var ResponseInterface $response */
-        $response = $this->app->handle($uri);
+        $baseUri  = $this->di->getShared('url')->getBaseUri();
+        $position = (strpos($_SERVER['REQUEST_URI'], $baseUri) + strlen($baseUri));
+        $uri      = '/'.substr($_SERVER['REQUEST_URI'], $position);
+        print_r($baseUri);
+        /**
+         * @var ResponseInterface $response
+         */
+        $response = $this->app->handle($uri)->getContent();
 
-        return (string)$response->getContent();
-    }
+        return (string) $response;
+
+    }//end run()
+
 
     /**
      * Get Project root path
@@ -72,7 +80,9 @@ class Application
     public function getRootPath(): string
     {
         return $this->rootPath;
-    }
+
+    }//end getRootPath()
+
 
     /**
      * @return MvcApplication
@@ -80,24 +90,31 @@ class Application
     protected function createApplication(): MvcApplication
     {
         return new MvcApplication($this->di);
-    }
+
+    }//end createApplication()
+
 
     /**
      * @throws Exception
      */
     protected function initializeProviders(): void
     {
-        $filename = $this->rootPath . '/config/providers.php';
+        $filename = $this->rootPath.'/config/providers.php';
         if (!file_exists($filename) || !is_readable($filename)) {
             throw new Exception('File providers.php does not exist or is not readable.');
         }
 
-        $providers = require_once $filename;
+        $providers = include_once $filename;
 
         foreach ($providers as $providerClass) {
-            /** @var ServiceProviderInterface $provider */
+            /*
+                @var ServiceProviderInterface $provider
+            */
             $provider = new $providerClass;
             $provider->register($this->di);
         }
-    }
-}
+
+    }//end initializeProviders()
+
+
+}//end class
