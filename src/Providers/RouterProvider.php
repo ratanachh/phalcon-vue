@@ -9,10 +9,10 @@ use Exception;
 use Phalcon\Di\DiInterface;
 use Phalcon\Di\ServiceProviderInterface;
 use Phalcon\Mvc\Router;
+use function KevinGH\Box\FileSystem\exists;
 
 class RouterProvider implements ServiceProviderInterface
 {
-
     /**
      * @var string
      */

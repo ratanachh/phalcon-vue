@@ -58,7 +58,6 @@ class Application
         $baseUri = $this->di->getShared('url')->getBaseUri();
         $position = strpos($_SERVER['REQUEST_URI'], $baseUri) + strlen($baseUri);
         $uri = '/' . substr($_SERVER['REQUEST_URI'], $position);
-echo $uri;
         /** @var ResponseInterface $response */
         $response = $this->app->handle($uri);
 

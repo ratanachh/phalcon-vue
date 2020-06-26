@@ -33,6 +33,7 @@ defined('PROJECT_PATH') || define('PROJECT_PATH', str_replace(BASE_URI, '/', url
 use Phalcon\Logger;
 use function App\root_path;
 
+
 return [
     'database'    => [
         'adapter'  => getenv('DB_ADAPTER'),

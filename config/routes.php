@@ -1,9 +1,16 @@
 <?php
+declare(strict_types=1);
+
+use Phalcon\Mvc\Router;
 
 defined('BASE_URI') || define('BASE_URI', $_GET['_url'] ?? '/');
 defined('PROJECT_PATH') || define('PROJECT_PATH', str_replace(BASE_URI, '/', urldecode(parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH))));
 
-$router = $di->getRouter(false);
+//$router = $di->getRouter(false);
+
+/**
+ * @var $router Router
+ */
 
 // Define your routes here
 $router->addGet('/', "Home::index");

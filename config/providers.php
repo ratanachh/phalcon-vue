@@ -1,11 +1,12 @@
 <?php
 
+use App\Providers\ConfigProvider;
 use App\Providers\RouterProvider;
 
 return [
 //    AclProvider::class,
 //    AuthProvider::class,
-//    ConfigProvider::class,
+    ConfigProvider::class,
 //    CryptProvider::class,
 //    DbProvider::class,
 //    DispatcherProvider::class,
