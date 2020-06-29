@@ -6,7 +6,6 @@ namespace App;
 use Exception;
 use Phalcon\Di\DiInterface;
 use Phalcon\Di\FactoryDefault;
-use Phalcon\Di\ServiceProviderInterface;
 use Phalcon\Http\ResponseInterface;
 use Phalcon\Mvc\Application as MvcApplication;
 
@@ -58,14 +57,10 @@ class Application
      */
     public function run(): string
     {
-        $baseUri  = $this->di->getShared('url')->getBaseUri();
-        $position = (strpos($_SERVER['REQUEST_URI'], $baseUri) + strlen($baseUri));
-        $uri      = '/'.substr($_SERVER['REQUEST_URI'], $position);
-        print_r($baseUri);
         /**
          * @var ResponseInterface $response
          */
-        $response = $this->app->handle($uri)->getContent();
+        $response = $this->app->handle(BASE_URI)->getContent();
 
         return (string) $response;
 
@@ -107,7 +102,7 @@ class Application
         $providers = include_once $filename;
 
         foreach ($providers as $providerClass) {
-            /*
+            /**
                 @var ServiceProviderInterface $provider
             */
             $provider = new $providerClass;

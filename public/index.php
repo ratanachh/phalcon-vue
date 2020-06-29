@@ -9,7 +9,6 @@ define('BASE_PATH', dirname(__DIR__));
 define('APP_PATH', BASE_PATH . '/src');
 
 try {
-//    require_once BASE_PATH . '/config/loader.php';
     require_once BASE_PATH . '/vendor/autoload.php';
     
     /**

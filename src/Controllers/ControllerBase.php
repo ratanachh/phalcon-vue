@@ -21,8 +21,7 @@ class ControllerBase extends Controller
     {
         $controllerName = $dispatcher->getControllerName();
         $actionName     = $dispatcher->getActionName();
-        echo $actionName;
         echo $controllerName;
-        return false;
+        return true;
     }
 }

@@ -8,9 +8,6 @@ class HomeController extends ControllerBase
 
     public function indexAction()
     {
-        echo '<pre>';
-//        print_r($this->response->redirect('/product')->setContent('data'));
-//        exit;
         echo 'Home index';
     }
 

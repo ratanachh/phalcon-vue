@@ -11,7 +11,7 @@ use Phalcon\Di\ServiceProviderInterface;
 class ConfigProvider implements ServiceProviderInterface
 {
     /**
-     * @var string
+     * @var string $providerName
      */
     protected $providerName = 'config';
 
@@ -24,14 +24,13 @@ class ConfigProvider implements ServiceProviderInterface
     {
         /** @var Application $application */
         $application = $di->getShared(Application::APPLICATION_PROVIDER);
-        echo '<pre>';
-        var_dump($application);
+
         /** @var string $rootPath */
         $rootPath = $application->getRootPath();
 
         $di->setShared($this->providerName, function () use ($rootPath) {
-                $config = require_once $rootPath . '/config/config.php';
-                return new Config($config);
-            });
+            $config = require_once $rootPath . '/config/config.php';
+            return new Config($config);
+        });
     }
 }

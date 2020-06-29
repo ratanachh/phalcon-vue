@@ -11,6 +11,7 @@ defined('PROJECT_PATH') || define('PROJECT_PATH', str_replace(BASE_URI, '/', url
 /**
  * @var $router Router
  */
+//$router->add('/', 'Home:index');
 
 // Define your routes here
 $router->addGet('/', "Home::index");
@@ -20,6 +21,6 @@ $router->addGet('/contact-us', "ContactUs::index");
 $router->addGet('/product', 'Product::index');
 
 $router->notFound(['controller' => 'error', 'action' => 'notFound']);
-
+//
 $router->setDefaults(['controller' => 'home', 'action' => 'index']);
-$router->handle(BASE_URI);
+//$router->handle(BASE_URI);
