@@ -25,7 +25,7 @@ return [
         'baseUri'         => PROJECT_PATH,
         'publicUrl'       => getenv('APP_PUBLIC_URL'),
         'cryptSalt'       => getenv('APP_CRYPT_SALT'),
-        'viewsDir'        => APP_PATH . '/Views/',
+        'viewsDir'        => APP_PATH . '/Views/default',
         'controllersDir'  => APP_PATH . '/Controllers/',
         'modelsDir'       => APP_PATH . '/Models/',
         'cacheDir'        => root_path('var/cache/'),

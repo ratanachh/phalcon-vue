@@ -7,7 +7,6 @@ use Phalcon\Config;
 use Phalcon\Di\DiInterface;
 use Phalcon\Di\ServiceProviderInterface;
 use Phalcon\Mvc\View;
-use Phalcon\Mvc\View\Engine\Php as PhpEngine;
 use Phalcon\Mvc\View\Engine\Volt as VoltEngine;
 
 class ViewProvider implements ServiceProviderInterface
@@ -43,8 +42,7 @@ class ViewProvider implements ServiceProviderInterface
                     ]);
 
                     return $volt;
-                },
-                '.phtml' => PhpEngine::class
+                }
             ]);
 
             return $view;

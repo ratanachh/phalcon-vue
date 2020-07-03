@@ -14,10 +14,12 @@ use Phalcon\Logger\Formatter\Line as FormatterLine;
  */
 class LoggerProvider implements ServiceProviderInterface
 {
+
     /**
      * @var string
      */
     protected $providerName = 'logger';
+
 
     /**
      * @param DiInterface $di
@@ -26,19 +28,27 @@ class LoggerProvider implements ServiceProviderInterface
      */
     public function register(DiInterface $di): void
     {
-        /** @var Config $loggerConfigs */
+        /**
+         * @var Config $loggerConfigs
+         */
         $loggerConfigs = $di->getShared('config')->get('logger');
 
-        $di->set($this->providerName, function () use ($loggerConfigs) {
-            $filename = trim($loggerConfigs->get('filename'), '\\/');
-            $path     = rtrim($loggerConfigs->get('path'), '\\/') . DIRECTORY_SEPARATOR;
+        $di->set(
+            $this->providerName,
+            function () use ($loggerConfigs) {
+                $filename = trim($loggerConfigs->get('filename'), '\\/');
+                $path     = rtrim($loggerConfigs->get('path'), '\\/').DIRECTORY_SEPARATOR;
 
-            $formatter = new FormatterLine($loggerConfigs->get('format'), $loggerConfigs->get('date'));
-            $logger    = new FileLogger($path . $filename);
+                $formatter = new FormatterLine($loggerConfigs->get('format'), $loggerConfigs->get('date'));
+                $logger    = new FileLogger($path.$filename);
 
-            $logger->setFormatter($formatter);
+                $logger->setFormatter($formatter);
 
-            return $logger;
-        });
-    }
-}
+                return $logger;
+            }
+        );
+
+    }//end register()
+
+
+}//end class

@@ -59,12 +59,7 @@ class DbProvider implements ServiceProviderInterface
         $name = $config->get('adapter', 'Unknown');
 
         if (empty($this->adapters[$name])) {
-            throw new RuntimeException(
-                sprintf(
-                    'Adapter "%s" has not been registered',
-                    $name
-                )
-            );
+            throw new RuntimeException( sprintf('Adapter "%s" has not been registered', $name) );
         }
 
         return $this->adapters[$name];

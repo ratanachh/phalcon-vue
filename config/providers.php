@@ -1,5 +1,6 @@
 <?php
 
+use App\Providers\AssetsProvider;
 use App\Providers\AuthProvider;
 use App\Providers\ConfigProvider;
 use App\Providers\CryptProvider;
@@ -34,6 +35,6 @@ return [
     SecurityProvider::class,
     UrlProvider::class,
     ViewProvider::class,
-//    AssetsProvider::class,
+    AssetsProvider::class,
     LoaderProvider::class
 ];

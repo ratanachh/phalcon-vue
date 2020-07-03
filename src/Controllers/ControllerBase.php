@@ -19,9 +19,6 @@ class ControllerBase extends Controller
      */
     public function beforeExecuteRoute(Dispatcher $dispatcher): bool
     {
-        $controllerName = $dispatcher->getControllerName();
-        $actionName     = $dispatcher->getActionName();
-        echo $controllerName;
         return true;
     }
 }

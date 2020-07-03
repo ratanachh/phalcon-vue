@@ -60,7 +60,7 @@ class Mail extends Injectable
             'publicUrl' => $this->config->application->publicUrl,
         ], $params);
 
-        return $this->view->getRender('emailTemplates', $name, $parameters, function (View $view) {
+        return $this->view->getRender('mailTemplates', $name, $parameters, function (View $view) {
             $view->setRenderLevel(View::LEVEL_LAYOUT);
         });
     }

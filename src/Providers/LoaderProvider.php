@@ -9,10 +9,12 @@ use Phalcon\Loader;
 
 class LoaderProvider implements ServiceProviderInterface
 {
+
     /**
      * @var Loader $loader
      */
     protected $loader;
+
 
     /**
      * LoaderProvider constructor.
@@ -20,7 +22,9 @@ class LoaderProvider implements ServiceProviderInterface
     public function __construct()
     {
         $this->loader = new Loader();
-    }
+
+    }//end __construct()
+
 
     /**
      * @param DiInterface $di
@@ -32,10 +36,13 @@ class LoaderProvider implements ServiceProviderInterface
         $config = $di->getShared('config');
         // Register namespaces
         $this->loader->registerNamespaces([
-            'App\Http\Controller'    => $config->application->controllersDir,
-            'App\Model' => $config->application->modelsDir
+            'App\Http\Controller' => $config->application->controllersDir,
+            'App\Model'           => $config->application->modelsDir,
         ]);
 
         $this->loader->register();
-    }
-}
+
+    }//end register()
+
+
+}//end class

@@ -3,7 +3,7 @@ declare(strict_types=1);
 
 namespace App\Http\Controller;
 
-class HomeController extends ControllerBase
+class SessionController extends ControllerBase
 {
 
     /**
@@ -13,16 +13,16 @@ class HomeController extends ControllerBase
     {
         $this->view->setTemplateBefore('public');
     }
-
-    public function indexAction(): void
+    
+    public function loginAction(): void
     {
-        echo 'Home index';
+        echo "login";
     }
 
-    public function contactUsAction()
+
+    public function signupAction(): void
     {
-        echo 'Home contact us';
+        $this->view->name = "test here";
     }
 
 }
-

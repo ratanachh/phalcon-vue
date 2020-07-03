@@ -60,9 +60,9 @@ class Application
         /**
          * @var ResponseInterface $response
          */
-        $response = $this->app->handle(BASE_URI)->getContent();
+        $response = $this->app->handle(BASE_URI);
 
-        return (string) $response;
+        return (string) $response->getContent();
 
     }//end run()
 
@@ -110,6 +110,5 @@ class Application
         }
 
     }//end initializeProviders()
-
 
 }//end class
