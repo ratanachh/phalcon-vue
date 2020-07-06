@@ -1,8 +1,7 @@
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar has-box-shadow" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
-    <a class="navbar-item" href="https://bulma.io">
-      <img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-    </a>
+  
+    <?= $this->tag->linkTo(['/', '<img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">', 'class' => 'navbar-item']) ?>
 
     <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" data-target="navbar">
       <span aria-hidden="true"></span>
@@ -11,11 +10,9 @@
     </a>
   </div>
 
-  <div id="navbarBasicExample" class="navbar-menu">
+  <div id="navbar" class="navbar-menu">
     <div class="navbar-start">
-      <a class="navbar-item">
-        Home
-      </a>
+      <?= $this->tag->linkTo(['/', 'Home', 'class' => 'navbar-item']) ?>
 
       <a class="navbar-item">
         Documentation
@@ -47,9 +44,7 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-primary">
-            <strong>Sign up</strong>
-          </a>
+          <?= $this->tag->linkTo(['/signup', 'Sign Up', 'class' => 'button is-primary']) ?>
           <a class="button is-light">
             Log in
           </a>
@@ -58,3 +53,23 @@
     </div>
   </div>
 </nav>
+
+
+<main role="main" class="flex-shrink-0">
+    <div class="container">
+        <?= $this->getContent() ?>
+    </div>
+</main>
+
+<footer class="footer mt-auto py-3">
+    <div class="container">
+        <span class="text-muted">
+            Made with love by the Phalcon Team
+
+            <?= $this->tag->linkTo(['privacy', 'Privacy Policy']) ?>
+            <?= $this->tag->linkTo(['terms', 'Terms']) ?>
+
+            © <?= date('Y') ?> Phalcon Team.
+        </span>
+    </div>
+</footer>

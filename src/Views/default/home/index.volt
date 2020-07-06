@@ -3,7 +3,7 @@
     <h1 class="display-4">Welcome!</h1>
     <p class="lead">This is a website secured by Phalcon Framework</p>
     <hr class="my-4">
-    {{ link_to('/signup', '<i class="icon-ok icon-white"></i> Create an Account', 'class': 'btn btn-primary btn-large') }}
+    {{ link_to('/signup', '<i class="icon-ok icon-white"> Create an Account</i>', 'class': 'btn btn-primary btn-large') }}
 
     <input type='hidden' name='{{ security.getTokenKey() }}' value='{{ security.getToken() }}'/>
 </header>
