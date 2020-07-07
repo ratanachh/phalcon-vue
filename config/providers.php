@@ -1,5 +1,6 @@
 <?php
 
+use App\Providers\AclProvider;
 use App\Providers\AssetsProvider;
 use App\Providers\AuthProvider;
 use App\Providers\ConfigProvider;
@@ -19,7 +20,7 @@ use App\Providers\UrlProvider;
 use App\Providers\ViewProvider;
 
 return [
-//    AclProvider::class,
+    AclProvider::class,
     AuthProvider::class,
     ConfigProvider::class,
     CryptProvider::class,
