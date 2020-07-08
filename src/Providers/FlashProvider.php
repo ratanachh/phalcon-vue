@@ -31,10 +31,10 @@ class FlashProvider implements ServiceProviderInterface
             $flash = new Flash($escaper);
             $flash->setImplicitFlush(false);
             $flash->setCssClasses([
-                'error'   => 'alert alert-danger',
-                'success' => 'alert alert-success',
-                'notice'  => 'alert alert-info',
-                'warning' => 'alert alert-warning'
+                'error'   => 'notification is-danger',
+                'success' => 'notification is-success',
+                'notice'  => 'notification is-info',
+                'warning' => 'notification is-warning'
             ]);
 
             return $flash;

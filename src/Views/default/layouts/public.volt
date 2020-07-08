@@ -55,7 +55,7 @@
 </nav>
 
 
-<main role="main" class="column mt-5 is-mobile">
+<main role="main" class="column is-mobile">
     <div class="container">
         {{ content() }}
     </div>
