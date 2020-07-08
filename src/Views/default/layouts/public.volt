@@ -55,21 +55,19 @@
 </nav>
 
 
-<main role="main" class="flex-shrink-0">
+<main role="main" class="column mt-5 is-mobile">
     <div class="container">
         {{ content() }}
     </div>
 </main>
 
-<footer class="footer mt-auto py-3">
+<footer class="footer mt-auto pt-3">
     <div class="container">
         <span class="text-muted">
-            Made with love by the Phalcon Team
+            © {{ date("Y") }} Projects Group Team
 
             {{ link_to("privacy", "Privacy Policy") }}
             {{ link_to("terms", "Terms") }}
-
-            © {{ date("Y") }} Phalcon Team.
         </span>
     </div>
 </footer>
