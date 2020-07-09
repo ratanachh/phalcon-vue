@@ -10,4 +10,4 @@ window.axios = require('axios');
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
-window.axios.defaults.baseURL = window.baseURL = 'http://example.test';
+window.axios.defaults.baseURL = window.baseURL = window.location.project_path;

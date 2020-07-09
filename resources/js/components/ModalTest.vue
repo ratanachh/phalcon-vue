@@ -13,23 +13,22 @@
 
         <b-modal :active.sync="isImageModalActive">
             <p class="image is-4by3">
-                <img src="/static/img/placeholder-1280x960.png">
+                <img :src="urplaceholder_1280x960">
             </p>
-            <h1 class="has-text-white">{{ url }}</h1>
         </b-modal>
 
         <b-modal :active.sync="isCardModalActive" :width="640" scroll="keep">
             <div class="card">
                 <div class="card-image">
                     <figure class="image is-4by3">
-                        <img src="/static/img/placeholder-1280x960.png" alt="Image">
+                        <img :src="urplaceholder_1280x960">
                     </figure>
                 </div>
                 <div class="card-content">
                     <div class="media">
                         <div class="media-left">
                             <figure class="image is-48x48">
-                                <img src="/static/img/placeholder-1280x960.png" alt="Image">
+                                <img :src="urplaceholder_1280x960" alt="Image">
                             </figure>
                         </div>
                         <div class="media-content">
@@ -57,7 +56,7 @@
             return {
                 isImageModalActive: false,
                 isCardModalActive: false,
-                url: this.$mount.link_to('/test')
+                urplaceholder_1280x960: this.link_to('img/placeholder-1280x960.png')
             }
         }
     }

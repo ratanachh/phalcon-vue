@@ -34,7 +34,6 @@ $(document).ready(function() {
         // Toggle the "is-active" class on both the "navbar-burger" and the "navbar-menu"
         $(".navbar-burger").toggleClass("is-active");
         $(".navbar-menu").toggleClass("is-active");
-  
     });
 
     $('.notification .delete').each(($index, $delete) => {
@@ -42,6 +41,26 @@ $(document).ready(function() {
         $($delete).on('click', function(){
             notification.parentNode.removeChild(notification);
         });
+    });
+
+    $(".navbar-link").click(function() {
+       $(this).siblings('.navbar-dropdown').fadeToggle(150);
+    });
+
+    let width = $(window).width();
+    if (width >= 1024){
+        $(".navbar-link").siblings('.navbar-dropdown').css('display', '');
+    } else {
+        $(".navbar-link").siblings('.navbar-dropdown').fadeOut(150);
+    }
+
+    $(window).resize(function() {
+        let width = $(window).width();
+        if (width >= 1024){
+            $(".navbar-link").siblings('.navbar-dropdown').css('display', '');
+        } else {
+            $(".navbar-link").siblings('.navbar-dropdown').fadeOut(150);
+        }
     });
 
 });

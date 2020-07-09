@@ -33,10 +33,7 @@ class AssetsProvider implements ServiceProviderInterface
                 ->addJs('/js/app.js?dc=' . self::VERSION, true)
                 ->addJs('/js/manifest.js?dc=' . self::VERSION, true)
                 ->addJs('/js/vendor.js?dc=' . self::VERSION, true)
-                ->addJs('//code.jquery.com/jquery-3.3.1.slim.min.js?dc=' . self::VERSION, false, true, [
-                    "integrity"   => "sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo",
-                    "crossorigin" => "anonymous"
-                ])
+                ->addJs('//code.jquery.com/jquery-3.5.1.min.js?dc=' . self::VERSION, false, true)
                 ->addJs('//use.fontawesome.com/releases/v5.3.1/js/all.js?dc=' . self::VERSION, false, true);
 
             return $assetManager;
